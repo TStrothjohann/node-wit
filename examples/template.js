@@ -18,11 +18,20 @@ const actions = {
     cb();
   },
   merge(sessionId, context, entities, message, cb) {
+    if (entities.intent) {
+      context.intent = entities.intent;
+    }else{
+      console.log(entities);
+    }
     cb(context);
   },
   error(sessionId, context, err) {
     console.log(err.message);
   },
+  intent_is_news(sessionId, context, cb){
+    console.log("Intent is: ", context.intent);
+    cb();
+  }
 };
 
 const client = new Wit(token, actions);

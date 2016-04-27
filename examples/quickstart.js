@@ -49,6 +49,14 @@ const actions = {
     context.forecast = 'sunny';
     cb(context);
   },
+  intent_is_news(sessionId, context, cb) {
+    if (context.intent === "news") {
+      console.log("Context is news");
+    }else{
+      console.log("it might be ", context)
+      cb(context);
+    }
+  },
 };
 
 const client = new Wit(token, actions);
