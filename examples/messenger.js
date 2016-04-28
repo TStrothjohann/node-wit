@@ -143,7 +143,7 @@ const actions = {
     }
     cb(context);
   },
-  error(sessionId, context, error) {
+  error(sessionId, context, error, cb) {
     console.log(error.message);
     cb(error);
   },
