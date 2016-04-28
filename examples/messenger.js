@@ -145,6 +145,7 @@ const actions = {
   },
   error(sessionId, context, error) {
     console.log(error.message);
+    cb(error);
   },
   // You should implement your custom actions here
   // See https://wit.ai/docs/quickstart
