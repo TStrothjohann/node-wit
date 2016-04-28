@@ -150,6 +150,7 @@ const actions = {
     }
   },
   merge(sessionId, context, entities, message, cb) {
+    console.log(entities);
     const loc = firstEntityValue(entities, 'location');
     const intent = firstEntityValue(entities, 'intent');
     if (loc) {
@@ -158,6 +159,7 @@ const actions = {
     if (intent) {
       context.intent = intent;
     }
+    console.log(context);
     cb(context);
   },
   error(sessionId, context, error) {
