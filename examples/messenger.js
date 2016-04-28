@@ -151,10 +151,10 @@ const actions = {
   },
   merge(sessionId, context, entities, message, cb) {
     console.log(entities);
-    const loc = firstEntityValue(entities, 'location');
+    const location = firstEntityValue(entities, 'location');
     const intent = firstEntityValue(entities, 'intent');
-    if (loc) {
-      context.loc = loc;
+    if (location) {
+      context.location = location;
     }
     if (intent) {
       context.intent = intent;
