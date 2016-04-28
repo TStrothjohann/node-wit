@@ -138,6 +138,9 @@ const actions = {
     }
   },
   merge(sessionId, context, entities, message, cb) {
+    if (entities.intent) {
+      context.intent = entities.intent;
+    }
     cb(context);
   },
   error(sessionId, context, error) {
