@@ -138,14 +138,18 @@ const actions = {
     }
   },
   merge(sessionId, context, entities, message, cb) {
-    if (entities.intent) {
-      context.intent = entities.intent;
+    const loc = firstEntityValue(entities, 'location');
+    const intent = firstEntityValue(entities, 'intent');
+    if (loc) {
+      context.loc = loc;
+    }
+    if (intent) {
+      context.intent = intent;
     }
     cb(context);
   },
-  error(sessionId, context, error, cb) {
+  error(sessionId, context, error) {
     console.log(error.message);
-    cb(error);
   },
   // You should implement your custom actions here
   // See https://wit.ai/docs/quickstart
